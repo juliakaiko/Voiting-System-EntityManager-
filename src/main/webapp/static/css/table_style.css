@@ -1,0 +1,137 @@
+table {  
+  
+  border-collapse: collapse;
+  border: 3px solid #87CEFA;
+}
+
+tr:hover {background-color: #f0ffff;}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th, td {
+  padding: 10px;
+}
+html {
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+thead th, tfoot th {
+  font-family: 'Rock Salt', cursive;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: left;
+}
+
+tfoot th {
+  text-align: right;
+}
+.btn {
+ display: inline-block; /* Строчно-блочный элемент */
+ background: #87CEFA; /* цвет фона */
+ color: #fff; /* Белый цвет текста */
+ padding: 1rem 1.5rem; /* Поля вокруг текста */
+ text-decoration: none; /* Убираем подчёркивание */
+ border-radius: 3px; /* Скругляем уголки */
+ border: 2px solid #87CEFA;
+}
+.red_btn{
+ display: inline-block; /* Строчно-блочный элемент */
+ float:right;
+ margin-right: 41%;
+ background: red; /* цвет фона */
+ color: #fff; /* Белый цвет текста */
+ padding: 1rem 1.5rem; /* Поля вокруг текста */
+ text-decoration: none; /* Убираем подчёркивание */
+ border-radius: 3px; /* Скругляем уголки */
+ border: 2px solid red;
+}
+
+.btn:link,.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border: none; 
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #87CEFA;
+    border: 2px solid #87CEFA;
+    color: white;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #87CEFA;
+    border: 2px solid #87CEFA;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

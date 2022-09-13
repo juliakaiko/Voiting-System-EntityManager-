@@ -1,0 +1,127 @@
+.login-form {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 5%;
+    position: relative;
+    z-index:5;
+    text-align: center;
+    background: #f3f3f3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+
+body {
+    font-family: "Segoe UI";
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.form-group {
+    margin-top: 30px;
+}
+.form-control {
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding: 0.5rem 0.5em;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.has-error{
+    color:red;
+    font-size: 0.8rem;
+}
+
+.btn {
+    display: inline-block; /* Строчно-блочный элемент */
+    font-size: 2rem;
+    background: #87CEFA; /* цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 1.5rem 2rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 30px; /* Скругляем уголки */
+} 
+
+.btn:link,.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border: none; 
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #87CEFA;
+    border: 2px solid #87CEFA;
+    color: white;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #87CEFA;
+    border: 2px solid #87CEFA;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+      

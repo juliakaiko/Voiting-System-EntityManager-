@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.step.springmvcapp</groupId>
+  <artifactId>springmvcapp</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>TEST_MyVoitingSystem_ENTITY_MANAGER</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <spring-framework.version>4.3.10.RELEASE</spring-framework.version> 
+    <hibernate.version>4.3.5.Final</hibernate.version>
+  </properties>
+
+    <dependencies>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId> <!--для тестов  -->
+          <version>4.11</version> 
+          <scope>test</scope>
+        </dependency>
+        
+        <!-- SERVLETS  -->
+        
+        <!--подключение jsp для сервлетов(JSP JavaServer Pages) --> 
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>  
+            <version>2.3.3</version>
+        </dependency>
+          
+        <!--подключение сервлетов: Java Servlet API - стандартизированный API для реализации 
+         на сервере и работе с клиентом по схеме запрос-ответ. 
+        javax.servlet*: http.HttpSession, @WebListener ,ДЛЯ WebInitializer=>Dispatcher servlet !!!-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>  
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--provided означает что зависимость будет доступна на этапе компиляции и тестирования приложения, но в архив она помещена не будет.-->
+
+        <!-- JSTL представляет собой набор тегов в стиле HTML, 
+        позволяющих обращаться к объектам Java (JSP Standard Tag Library) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId> 
+            <version>1.2</version>
+        </dependency>
+        
+        
+        <!-- SPRING  -->
+        
+        <!--  веб-среда Spring, включает MVC (M–Model, V– View, C–Controller)для сред сервлетов -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId> 
+            <version>${spring-framework.version}</version>
+        </dependency>
+        
+   <!-- Не нужно дополнительно подключать зависимости для spring core, context, beans и т.д. которые нам понадобятся,
+   все необходимое подтянулось само вместе со spring-webmvc, но во избежание конфликта версий, лучше отдельно прописать -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId> <!--  -->
+            <version>${spring-framework.version}</version>
+        </dependency>
+        
+        <!--commons-codec,commons-logging,log4j,net.sf.jopt-simple,aspectjweaver  -->
+         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId> 
+            <version>${spring-framework.version}</version>
+        </dependency>
+        
+        <!-- 17 библилиотек и содержит уже spring-core и hibernate-validator,validation-api -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId> <!-- ядро Spring, его модули -->
+            <version>${spring-framework.version}</version>
+         </dependency>
+    
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId> <!-- транзакции Spring -->
+            <version>${spring-framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId> <!-- интеграция Spring с Hibernate -->
+            <version>${spring-framework.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.data</groupId> 
+            <artifactId>spring-data-jpa</artifactId> <!-- SpringData + JPA =>extends JpaRepository вместо DAO!!!-->
+            <version>1.8.0.RELEASE</version> 
+        </dependency>
+        
+        <!-- HIBERNATE  -->
+        
+        <!-- для @NotNull, @Size, @Valid, Digits, Min,Max и пр. => javax.validation.constraints--> 
+        <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator</artifactId> 
+          <version>6.2.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId> <!--  JPA -->
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId> <!-- ядро Hibernate -->
+            <version>${hibernate.version}</version> <!-- 6.0.0.Final -->
+            <type>jar</type>
+        </dependency>
+        
+        <!-- hibernate-jpa-2.0-api  1.0.1.Final выдает ошибки javax.persistence.Table.indexes
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency> -->
+        
+        <!--драйвер для Mysql  -->
+         <!-- BD=> MySQL   -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId> 
+            <version>8.0.29</version>
+        </dependency>
+
+        <!--dependency data source =>Apache-решение  
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId> 
+            <version>1.4</version>
+        </dependency>-->
+        
+         <!-- Настройка Tomcat на БД -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>9.0.10</version>
+        </dependency>
+        
+         <!-- ДЛЯ ХЭШИРОВАНИЯ ПАРОЛЯ -->  
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+        </dependency>
+        
+         <!-- Добавила 12.07, чтобы ушла ошибка oClassDefFoundError: org / aspectj / util / PartialOrder $ PartialComparable 
+         <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.13</version>
+        </dependency>-->
+
+    </dependencies>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                        <warName>Spring4MVCHelloWorldNoXMLDemo</warName>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+                
+                
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                  <artifactId>maven-clean-plugin</artifactId>
+                  <version>3.1.0</version>
+                </plugin>
+                <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+                <plugin>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <version>2.22.1</version>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-jar-plugin</artifactId>
+                  <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-install-plugin</artifactId>
+                  <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-deploy-plugin</artifactId>
+                  <version>2.8.2</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                  <artifactId>maven-site-plugin</artifactId>
+                  <version>3.7.1</version>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-project-info-reports-plugin</artifactId>
+                  <version>3.0.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <finalName>Spring4MVCHelloWorldNoXMLDemo</finalName>
+    </build>
+ 
+</project>
